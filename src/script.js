@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { RGBELoader } from "three/addons/loaders/RGBELoader.js";
-import { Evaluator, Brush } from "three-bvh-csg";
+import { Evaluator, Brush, SUBTRACTION } from "three-bvh-csg";
 import GUI from "lil-gui";
 
 /**
@@ -46,9 +46,21 @@ scene.add(placeholder);
 //Brushes
 const boardFill = new Brush(new THREE.BoxGeometry(11, 2, 11));
 const boardHole = new Brush(new THREE.BoxGeometry(10, 2.1, 10));
+// boardHole.position.y = 0.2;
+// boardHole.updateMatrixWorld();
 
 //Evaluate
 const evaluator = new Evaluator();
+const board = evaluator.evaluate(boardFill, boardHole, SUBTRACTION);
+board.geometry.clearGroups();
+board.material = new THREE.MeshStandardMaterial({
+  color: "#ffffff",
+  metalness: 0,
+  roughness: 0,
+});
+board.castShadow = true;
+board.receiveShadow = true;
+scene.add(board);
 
 /**
  * Lights
