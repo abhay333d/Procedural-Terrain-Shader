@@ -48,6 +48,7 @@ const uniforms = {
   uStrength: new THREE.Uniform(2.0),
   uWarpFrequency: new THREE.Uniform(5),
   uWarpStrength: new THREE.Uniform(0.5),
+  uTime: new THREE.Uniform(0),
 };
 gui
   .add(uniforms.uPositionFrequency, "value", 0, 1, 0.001)
@@ -175,6 +176,9 @@ const clock = new THREE.Clock();
 
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
+
+  //Unifroms
+  uniforms.uTime.value = elapsedTime;
 
   // Update controls
   controls.update();
