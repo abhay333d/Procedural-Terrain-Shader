@@ -79,9 +79,7 @@ gui.addColor(debugObject, "colorWaterDeep").onChange(() => {
   uniforms.uColorWaterDeep.value.set(debugObject.colorWaterDeep);
 });
 gui.addColor(debugObject, "colorWaterSurface").onChange(() => {
-  uniforms.uColorWaterSurface.value.set(
-    debugObject.colorWaterSurface
-  );
+  uniforms.uColorWaterSurface.value.set(debugObject.colorWaterSurface);
 });
 gui.addColor(debugObject, "colorSand").onChange(() => {
   uniforms.uColorSand.value.set(debugObject.colorSand);
@@ -93,7 +91,7 @@ gui.addColor(debugObject, "colorSnow").onChange(() => {
   uniforms.uColorSnow.value.set(debugObject.colorSnow);
 });
 gui.addColor(debugObject, "colorRock").onChange(() => {
-  uniforms.uColorRock.value.set(debugObject.colorRock); 
+  uniforms.uColorRock.value.set(debugObject.colorRock);
 });
 
 const material = new CustomShaderMaterial({
@@ -126,6 +124,20 @@ terrain.customDepthMaterial = depthMaterial;
 terrain.receiveShadow = true;
 terrain.castShadow = true;
 scene.add(terrain);
+
+/**
+ * Water
+ */
+const water = new THREE.Mesh(
+  new THREE.PlaneGeometry(10, 10, 1, 1),
+  new THREE.MeshPhysicalMaterial({
+    transmission: 1,
+    roughness: 0.3,
+  })
+);
+water.rotation.x = -Math.PI / 2;
+water.position.y = -0.1;
+scene.add(water);
 
 /**
  * Board
