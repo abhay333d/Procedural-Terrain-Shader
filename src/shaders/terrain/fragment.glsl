@@ -7,6 +7,7 @@ uniform vec3 uColorSnow;
 uniform vec3 uColorRock;
 
 varying vec3 vPosition;
+varying float vUpDot;
 
 #include ../includes/simplexNoise2d.glsl
 
@@ -25,6 +26,12 @@ void main(){
     //grass
     float grassMix = step(-0.06, vPosition.y);
     color = mix(color, uColorGrass, grassMix);
+
+    //Rock
+    float rockMix = vUpDot;
+    rockMix = 1.0 - step(0.8, rockMix);
+    rockMix *=  step(-0.06, vPosition.y);
+    color = mix(color, uColorRock, rockMix);
 
     //snow
     float snowThreshold = 0.45;
