@@ -15,9 +15,9 @@
   "dependencies": {
     "install": "^0.13.0",
     "lil-gui": "^0.19.2",
-    "three": "^0.166.1",
+    "three": "^0.169.0",
     "three-bvh-csg": "^0.0.16",
     "three-custom-shader-material": "^5.4.0",
-    "three-mesh-bvh": "^0.8.0"
+    "three-mesh-bvh": "^0.1.5"
   }
 }
