@@ -1,6 +1,6 @@
 import * as THREE from "three";
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { RGBELoader } from "three/addons/loaders/RGBELoader.js";
+import { OrbitControls } from "three/examples/jsm/Addons.js";
+import { RGBELoader } from "three/examples/jsm/Addons.js";
 import { Evaluator, Brush, SUBTRACTION } from "three-bvh-csg";
 import CustomShaderMaterial from "three-custom-shader-material/vanilla";
 import GUI from "lil-gui";
