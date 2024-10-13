@@ -1,9 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
 import { RGBELoader } from "three/examples/jsm/Addons.js";
-import { Evaluator } from "three-bvh-csg";
-import { Brush } from "three-bvh-csg";
-import { SUBTRACTION } from "three-bvh-csg";
+import { Evaluator, Brush, SUBTRACTION } from "../node_modules/three-bvh-csg";
 import CustomShaderMaterial from "three-custom-shader-material/vanilla";
 import GUI from "lil-gui";
 import terrainVertexShader from "./shaders/terrain/vertex.glsl";
